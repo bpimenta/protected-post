@@ -1,0 +1,6 @@
+.soft-lock-wrapper__login-widget .portlet-login .panel-body .form-group:first-child,
+.soft-lock-wrapper__login-widget .portlet-login .form-group.form-inline.input-checkbox-wrapper,
+.soft-lock-wrapper__login-widget .portlet-login .c-mt-3.navigation
+{
+display: none
+}

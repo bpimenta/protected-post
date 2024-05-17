@@ -1,0 +1,33 @@
+[#assign is_signed_in = themeDisplay.isSignedIn()]
+
+<div class="soft-lock-wrapper">
+	
+	[#if is_signed_in]
+    <span>Usuário logado</span>
+	
+  [#else]
+	   <h3>Conteúdo protegido! </h3>
+	
+	  <div class="soft-lock-wrapper__login-widget">
+		  [@liferay_portlet["runtime"]
+		    portletName="com_liferay_login_web_portlet_LoginPortlet"
+		  /]
+	  </div>
+	  <script>
+			
+			let $loginWidgetWrapper = document.querySelector('.soft-lock-wrapper__login-widget');
+			
+			if($loginWidgetWrapper) {
+				let $loginField = document.getElementById('_com_liferay_login_web_portlet_LoginPortlet_login');
+				$loginField.dispatchEvent(new Event('change'));
+				let $passwordLabel = document.querySelector('label[for="_com_liferay_login_web_portlet_LoginPortlet_password"]');
+
+        $loginField.value = "prospect@liferay.com";
+				$passwordLabel.innerHTML = "PIN"
+
+
+			}
+	  </script>
+	[/#if]
+	
+</div>
